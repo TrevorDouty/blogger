@@ -24,8 +24,14 @@ class BlogsService {
   }
 
   async createBlog(blogData) {
-    await api.post('api/blogs', blogData)
-    router.push({ name: 'Profile' })
+    try {
+      const res = await api.post('api/blogs/', blogData)
+      router.push({ name: 'Profile' })
+      this.getMyBlogs()
+      console.log(res.data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
 

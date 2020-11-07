@@ -4,7 +4,7 @@ import { api } from './AxiosService'
 class ProfileService {
   async getProfile() {
     try {
-      const res = await api.get('/profile')
+      const res = await api.get('api/profile')
       AppState.profile = res.data
       // eslint-disable-next-line no-console
       console.log(res.data)

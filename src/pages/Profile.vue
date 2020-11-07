@@ -16,14 +16,6 @@
           type="text"
           class="form-control"
           aria-describedby="helpId"
-          placeholder="Author"
-          v-model="state.newBlog.creator"
-        >
-
-        <input
-          type="text"
-          class="form-control"
-          aria-describedby="helpId"
           placeholder="Blog Body"
           v-model="state.newBlog.body"
         >
@@ -53,6 +45,7 @@ export default {
       profile: computed(() => AppState.profile),
       blogs: computed(() => AppState.myblogs),
       createBlog() {
+        console.log(state.newBlog.title, state.newBlog.body)
         blogsService.createBlog(state.newBlog)
       }
 
