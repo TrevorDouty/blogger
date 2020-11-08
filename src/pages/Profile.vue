@@ -24,7 +24,7 @@
         </button>
       </form>
     </div>
-    <my-blog class="row card" v-for="blog in blogs" :my-blog-prop="blog" :key="blog" />
+    <my-blog class="row card" v-for="blog in blogs" :my-blog-prop="blog" :key="blog._id" />
   </div>
 </template>
 

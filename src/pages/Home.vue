@@ -19,7 +19,7 @@ import Blog from '../components/Blog'
 export default {
   name: 'Home',
   setup() {
-    onMounted(() => blogsService.getAll())
+    onMounted(() => { blogsService.getAll() })
 
     return {
       profile: computed(() => AppState.profile),
