@@ -26,8 +26,21 @@ class BlogsService {
   async createBlog(blogData) {
     try {
       const res = await api.post('api/blogs/', blogData)
-      router.push({ name: 'Profile', params: { blogId: res.data.id } })
+      router.push({ name: 'Profile' })
       this.getMyBlogs()
+      console.log(res.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async createComment(data) {
+    try {
+      // @ts-ignore
+      const newComment = { body: data, blog: AppState.ActiveBlog.id }
+      const res = await api.post('api/comments', newComment)
+      // @ts-ignore
+      this.getComment(AppState.ActiveBlog.id)
       console.log(res.data)
     } catch (error) {
       console.error(error)
@@ -39,6 +52,15 @@ class BlogsService {
       const res = await api.get('api/blogs/' + blogId)
       console.log(res.data)
       AppState.ActiveBlog = res.data
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async getComments(blogId) {
+    try {
+      const res = await api.get('api/blogs/' + blogId + '/comments')
+      AppState.comments = res.data
     } catch (error) {
       console.error(error)
     }

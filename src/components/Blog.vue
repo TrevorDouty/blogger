@@ -1,7 +1,7 @@
 <template>
   <div class="blog card border border-warning shadow-lg col-3 m-2 text-light">
     <p>{{ blog.title }}</p>
-    <p>{{ blog.creator.name }}</p>
+    <p>{{ blog.creatorEmail }}</p>
   </div>
 </template>
 

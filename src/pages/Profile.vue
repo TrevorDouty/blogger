@@ -39,7 +39,7 @@ export default {
     const state = reactive({
       newBlog: {}
     })
-    onMounted(() => blogsService.getMyBlogs())
+    onMounted(() => { blogsService.getMyBlogs() })
     return {
       state,
       profile: computed(() => AppState.profile),
