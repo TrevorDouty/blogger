@@ -1,10 +1,10 @@
 <template>
-  <div class="my-blog">
+  <div class="my-blog text-light bg-dark">
     <router-link :to="{ name: 'ActiveBlog', params: {blogId: blog._id} }">
       <p>{{ blog.title }}</p>
-      <p>{{ blog.body }}</p>
-      <p> {{ blog.creatorEmail }}</p>
     </router-link>
+    <p>{{ blog.body }}</p>
+    <p> {{ blog.creatorEmail }}</p>
 
     <!-- <button @click="getActiveBlog">
       Read Blog Post

@@ -106,9 +106,11 @@ export default {
   display: block;
   transform: scale(0);
   transition: all 0.15s linear;
+  position: absolute;
 }
 .dropdown-menu.show {
   transform: scale(1);
+  position: relative;
 }
 .hoverable {
   cursor: pointer;

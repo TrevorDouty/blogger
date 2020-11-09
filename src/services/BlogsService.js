@@ -66,18 +66,31 @@ class BlogsService {
     }
   }
 
-  // async editComment(blogId, commentId, body) {
-  //   try {
-  //     const res = await api.put('api/blogs/' + blogId + '/comments' + commentId, body)
-  //     AppState.comments = res.data
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
+  async editBlog(blogId, body) {
+    try {
+      const res = await api.put('api/blogs/' + blogId, body)
+      console.log(res.data)
+      AppState.myblogs = res.data
+      router.push({ name: 'ActiveBlog' })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async editComment(commentId, body) {
+    try {
+      const res = await api.put('api/comments/' + commentId, body)
+      console.log(res.data)
+      AppState.comments = res.data
+      router.push({ name: 'ActiveBlog' })
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   async deleteBlog(blogId) {
     try {
-      if (window.confirm()) {
+      if (window.confirm('Are you sure you want to delete this blog?')) {
         const res = await api.delete('api/blogs/' + blogId)
         AppState.myblogs = res.data
         router.push({ name: 'Profile' })
@@ -89,7 +102,7 @@ class BlogsService {
 
   async deleteComment(commentId) {
     try {
-      if (window.confirm()) {
+      if (window.confirm('Are you sure you want to delete this comment?')) {
         const res = await api.delete('api/comments/' + commentId)
         console.log(res.data)
         AppState.comments = res.data
