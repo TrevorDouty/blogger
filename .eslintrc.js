@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 2020
   },
   rules: {
-    'no-console': { 'allow': ['warn','error']},
+    'no-console': PROD ? ERROR : WARN,
     'no-debugger': PROD ? ERROR : WARN,
     'space-before-function-paren': [WARN, NEVER],
     'vue/max-attributes-per-line': [ERROR, {

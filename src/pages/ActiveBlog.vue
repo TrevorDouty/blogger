@@ -96,7 +96,7 @@ export default {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjvonNIwItmd9potcJpnEXKq_aVuRCKccXkw&usqp=CAU');
   background-repeat: no-repeat;
   background-size: cover;
-
+height: 100vh;
 }
 
 .buttons{
