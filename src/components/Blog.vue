@@ -26,5 +26,6 @@ export default {
 
 <style scoped>
 .blog {font-family: 'Syne Mono', monospace;
+background-color: rgba(131, 86, 4, 0.842);
 }
 </style>

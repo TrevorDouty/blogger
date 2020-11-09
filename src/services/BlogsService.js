@@ -78,7 +78,8 @@ class BlogsService {
   async deleteBlog(blogId) {
     try {
       if (window.confirm()) {
-        await api.delete('api/blogs/' + blogId)
+        const res = await api.delete('api/blogs/' + blogId)
+        AppState.myblogs = res.data
         router.push({ name: 'Profile' })
       }
     } catch (error) {

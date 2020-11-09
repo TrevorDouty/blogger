@@ -5,6 +5,7 @@
       <p>{{ blog.body }}</p>
       <p> {{ blog.creatorEmail }}</p>
     </router-link>
+
     <!-- <button @click="getActiveBlog">
       Read Blog Post
     </button> -->
@@ -14,15 +15,15 @@
 <script>
 import { computed } from 'vue'
 import { AppState } from '../AppState'
+// import { useRoute } from 'vue-router'
+// import { blogsService } from '../services/BlogsService'
 // import { blogsService } from '../services/BlogsService'
 // import { useRoute } from 'vue-router'
 // import router from '../router'
 
 export default {
   name: 'MyBlog',
-  props: {
-    myBlogProp: Object
-  },
+  props: ['myBlogProp'],
   setup(props) {
     // const route = useRoute()
     return {

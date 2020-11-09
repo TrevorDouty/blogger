@@ -17,6 +17,9 @@
         Post Comment
       </button>
     </form>
+    <button @click="deleteBlog(blogId)">
+      Delete
+    </button>
   </div>
   <all-comments v-for="comment in comments" :comments-prop="comment" :key="comment.body" />
 </template>
@@ -46,6 +49,9 @@ export default {
       comments: computed(() => AppState.comments),
       createComment() {
         blogsService.createComment(state.body)
+      },
+      deleteBlog() {
+        blogsService.deleteBlog(route.params.blogId)
       }
     }
   },

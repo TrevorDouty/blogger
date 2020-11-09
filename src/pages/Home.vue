@@ -37,7 +37,7 @@ background-repeat: no-repeat;
 background-size: cover;}
 
 .welcome{
-  color: orange;
+  color: rgba(131, 86, 4, 0.842);
 }
 
 </style>
