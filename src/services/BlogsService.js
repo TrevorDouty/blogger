@@ -66,11 +66,33 @@ class BlogsService {
     }
   }
 
+  // async editComment(blogId, commentId, body) {
+  //   try {
+  //     const res = await api.put('api/blogs/' + blogId + '/comments' + commentId, body)
+  //     AppState.comments = res.data
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+
   async deleteBlog(blogId) {
     try {
       if (window.confirm()) {
         await api.delete('api/blogs/' + blogId)
         router.push({ name: 'Profile' })
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async deleteComment(commentId) {
+    try {
+      if (window.confirm()) {
+        const res = await api.delete('api/comments/' + commentId)
+        console.log(res.data)
+        AppState.comments = res.data
+        router.push({ name: 'ActiveBlog' })
       }
     } catch (error) {
       console.error(error)

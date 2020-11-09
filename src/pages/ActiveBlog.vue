@@ -1,18 +1,23 @@
 <template>
   <div class="active-blog">
-    <h1>Hello {{ blog.title }}</h1>
+    <div v-if="blog.creator">
+      <img :src="blog.creator.picture" alt="">
+    </div>
+    <h1>{{ blog.title }}</h1>
+    <p>{{ blog.body }}</p>
+    <!-- v-if="profile.email" -->
+    <form class="form-group" @submit.prevent="createComment">
+      <input type="text"
+             class="form-control"
+             aria-describedby="helpId"
+             placeholder="Comment"
+             v-model="state.body"
+      >
+      <button type="submit">
+        Post Comment
+      </button>
+    </form>
   </div>
-  <form class="form-group" v-if="profile.email" @submit.prevent="createComment">
-    <input type="text"
-           class="form-control"
-           aria-describedby="helpId"
-           placeholder="Comment"
-           v-model="state.body"
-    >
-    <button type="submit">
-      Post Comment
-    </button>
-  </form>
   <all-comments v-for="comment in comments" :comments-prop="comment" :key="comment.body" />
 </template>
 

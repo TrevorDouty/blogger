@@ -1,7 +1,9 @@
 <template>
   <div class="blog card border border-warning shadow-lg col-3 m-2 text-light">
-    <p>{{ blog.title }}</p>
-    <p>{{ blog.creatorEmail }}</p>
+    <router-link :to="{ name: 'ActiveBlog', params: {blogId: blog._id} }">
+      <p>{{ blog.title }}</p>
+      <p>{{ blog.creatorEmail }}</p>
+    </router-link>
   </div>
 </template>
 
@@ -24,7 +26,5 @@ export default {
 
 <style scoped>
 .blog {font-family: 'Syne Mono', monospace;
-background-image: url("https://swall.teahub.io/photos/small/1-13929_nice-wallpapers-hd-12-nice-background.jpg");
-background-repeat: no-repeat;
-background-size: cover;}
+}
 </style>

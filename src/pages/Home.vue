@@ -1,7 +1,7 @@
 <template>
   <div class="home container-fluid">
     <div class="row justify-content-center">
-      <h1>
+      <h1 class="welcome">
         Welcome
       </h1>
     </div>
@@ -29,3 +29,15 @@ export default {
   components: { Blog }
 }
 </script>
+
+<style scoped>
+.home{
+background-image: url("https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+background-repeat: no-repeat;
+background-size: cover;}
+
+.welcome{
+  color: orange;
+}
+
+</style>
