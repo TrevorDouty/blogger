@@ -16,9 +16,10 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 import { blogsService } from '../services/BlogsService'
 import router from '../router'
+import { AppState } from '../AppState'
 export default {
   name: 'AllComments',
   props: ['commentsProp'],
@@ -27,6 +28,9 @@ export default {
       editComment: {}
     })
     return {
+      blog: computed(() => AppState.ActiveBlog),
+      profile: computed(() => AppState.profile),
+      comments: computed(() => AppState.comments),
       state,
       deleteComment() {
         router.push({ name: 'ActiveBlog', params: { commentId: props.commentsProp._id } })

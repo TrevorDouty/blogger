@@ -25,7 +25,7 @@
             </button>
           </div>
           <div class="col">
-            <button @click="deleteBlog(blogId)" class="buttons btn rounded mt-2">
+            <button @click="deleteBlog(blogId)" class="buttons btn rounded mt-2" v-if="profile.email == blog.creatorEmail">
               Delete Blog
             </button>
           </div>
@@ -35,7 +35,7 @@
 
     <div class="row justify-content-center text-center">
       <div class="col">
-        <form class="form-group" @submit.prevent="editBlog">
+        <form class="form-group" @submit.prevent="editBlog" v-if="profile.email == blog.creatorEmail">
           <textarea v-model="state.editBlog.body" name="" id="" cols="30" rows="1"></textarea>
           <button type="submit" class="buttons btn rounded mt-2">
             Edit Blog
